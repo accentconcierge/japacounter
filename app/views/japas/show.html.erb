@@ -1,0 +1,18 @@
+
+<center>
+<p>
+  <strong>Rounds:</strong>
+  <%= @japa.rounds %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @japa.comment %>
+</p>
+
+
+<% if @japa.user == current_user %>
+<%= link_to 'Edit', edit_japa_path(@japa) %> |
+<%end%>
+<%= link_to 'Back', japas_path %>
+</center>

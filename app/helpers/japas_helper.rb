@@ -1,0 +1,2 @@
+module JapasHelper
+end

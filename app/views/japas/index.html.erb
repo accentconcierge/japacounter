@@ -1,0 +1,41 @@
+
+<center>
+<h1>Listing Japa </h1> 
+<br>
+<% if user_signed_in? %>
+<%= button_to '+ New Japa', new_japa_path, class: 'btn btn-lg btn-info' %>
+<%end%>
+<br>
+<table class = 'table table-hover' style = 'width:700px;'>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Rounds</th>
+      <th>Goal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @japas.each do |japa| %>
+        
+  <tr>
+     <td><%= japa.created_at %></td>
+     <td><%= japa.rounds %></td>
+     <td> / 16 </td>
+     <td><%= link_to 'More', japa %></td>
+  <% if japa.user == current_user %>
+      <td><%= link_to 'Edit', edit_japa_path(japa) %></td>
+      <td><%= link_to 'Delete', japa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+    
+  <% end %>
+    
+      
+     
+    <% end %>
+  </tbody>
+</table>
+</center>
+
+
